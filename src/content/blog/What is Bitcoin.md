@@ -4,7 +4,7 @@ pubDate: 2025-03-31
 description: "A detailed overview of Bitcoin and the ideas behind it, including insights from The Bitcoin Standard."
 ---
 
-🟠 What exactly is **Bitcoin**?
+What is **Bitcoin**?
 
 Depending on who you ask, it’s:
 - Digital gold
