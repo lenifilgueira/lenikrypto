@@ -165,5 +165,59 @@ input {
 	height: 4.0rem; /* 36px – slightly bigger than nav text */
 	display: block;
   }
+
+  header {
+	background: white;
+	padding: 1rem;
+	box-shadow: 0 2px 8px rgba(var(--black), 0.05);
+  }
+  
+  nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap; /* key to avoid overflow on mobile */
+	gap: 1rem;
+  }
+  
+  .internal-links {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	justify-content: center;
+  }
+  
+  .social-icons {
+	display: flex;
+	gap: 0.75rem;
+	align-items: center;
+	justify-content: center;
+  }
+  
+  .social-icons img {
+	width: 24px;
+	height: 24px;
+	filter: brightness(0) saturate(100%) invert(39%) sepia(89%) saturate(2936%) hue-rotate(7deg) brightness(102%) contrast(107%);
+	transition: transform 0.2s ease;
+  }
+  .social-icons img:hover {
+	transform: scale(1.1);
+  }
+  
+  @media (max-width: 720px) {
+	nav {
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	.internal-links {
+	  justify-content: center;
+	}
+  
+	.social-icons {
+	  justify-content: center;
+	}
+  }
+  
   
   
