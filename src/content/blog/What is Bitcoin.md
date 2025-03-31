@@ -1,6 +1,6 @@
 ---
 title: "What is Bitcoin?"
-pubDate: 2025-04-01
+pubDate: 2025-03-31
 description: "A detailed overview of Bitcoin and the ideas behind it, including insights from The Bitcoin Standard."
 ---
 

@@ -3,50 +3,54 @@ import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
 import '../styles/global.css';
+
+const allPosts = await getCollection('blog');
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+  .slice(0, 3);
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🚀 Welcome to LeniKrypto</h1>
-			<p>Exploring Bitcoin & Crypto — one block at a time.</p>
-			<p>This project is built with <strong>Astro</strong> and styled using regular CSS for simplicity and performance.</p>
-		
-			<hr />
-		
-			<section>
-				<h2>🔶 What is LeniKrypto?</h2>
-				<p>
-					LeniKrypto is your no-fluff guide to Bitcoin and crypto. Whether you're brand new or curious to dive deeper, we break it all down — one block, one byte, and one meme at a time.
-				</p>
-				<ul>
-					<li>🔍 Clear explanations of complex topics</li>
-					<li>🧰 Simple tools & visuals</li>
-					<li>🎨 Engaging, short reads & illustrations</li>
-				</ul>
-			</section>
-		
-			<hr />
-		
-			<section>
-				<h2>📝 Latest Posts</h2>
-				<ul>
-					<li><a href="/blog/what-is-bitcoin">👉 What is Bitcoin?</a></li>
-					<li><a href="/blog/types-of-wallets">👉 Crypto Wallets: Hot vs Cold</a></li>
-					<li><a href="/blog/seed-phrases-explained">👉 What’s a Seed Phrase?</a></li>
-				</ul>
-				<p><a href="/blog">View all posts →</a></p>
-			</section>
-		
-			<hr />
-			
-		</main>
-		<Footer />
-	</body>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Welcome to lenikrypto</h1>
+      <p>Exploring Bitcoin & Crypto — one block at a time.</p>
+
+      <hr />
+
+      <section>
+        <h2>🎓 Start Your Bitcoin Journey</h2>
+        <p>Begin with the fundamentals:</p>
+        <p><a href="/blog/what-is-bitcoin">👉 What is Bitcoin?</a></p>
+      </section>
+
+      <hr />
+
+      <section>
+        <h2>📝 Latest Posts</h2>
+        <ul>
+          {latestPosts.map(post => (
+            <li><a href={`/blog/${post.slug}`}>👉 {post.data.title}</a></li>
+          ))}
+        </ul>
+        <p><a href="/blog">View all posts →</a></p>
+      </section>
+
+      <hr />
+
+      <section>
+		<script src="https://widgets.coingecko.com/gecko-coin-price-marquee-widget.js"></script>
+		<gecko-coin-price-marquee-widget locale="en" transparent-background="true" coin-ids="" initial-currency="usd"></gecko-coin-price-marquee-widget>
+      </section>
+
+    </main>
+    <Footer />
+  </body>
 </html>
