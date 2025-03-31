@@ -3,7 +3,18 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} LeniKrypto. All rights reserved.
+		<!-- CoinGecko Widget -->
+		<div style="margin-top: 2em;">
+			<gecko-coin-price-marquee-widget 
+				locale="en" 
+				transparent-background="true"
+				coin-ids="bitcoin,ethereum,ripple,binancecoin,dogecoin,cardano,tron"
+				initial-currency="usd">
+			</gecko-coin-price-marquee-widget>
+		</div>
+
+	&copy; {today.getFullYear()} lenikrypto. All rights reserved.
+
 	<div class="social-icons" style="display: flex; gap: 1rem;">
 		<a href="https://x.com/lenikrypto" aria-label="x">
 		  <img src="/icons/x.png" alt="x" width="24" height="24" />
@@ -14,11 +25,22 @@ const today = new Date();
 		<a href="https://tiktok.com/@lenikrypto" aria-label="TikTok">
 		  <img src="/icons/tiktok.png" alt="TikTok" width="24" height="24" />
 		</a>
-	  </div>
+	</div>
+
 </footer>
+
+<script is:inline>
+	if (!window.customElements.get('gecko-coin-price-marquee-widget')) {
+	  const script = document.createElement('script');
+	  script.src = "https://widgets.coingecko.com/gecko-coin-price-marquee-widget.js";
+	  document.body.appendChild(script);
+	}
+  </script>
+  
+
 <style>
 	footer {
-		padding: 2em 1em 6em 1em;
+		padding: 2em 1em 2em 1em;
 		background: linear-gradient(var(--gray-gradient)) no-repeat;
 		color: rgb(var(--gray));
 		text-align: center;
