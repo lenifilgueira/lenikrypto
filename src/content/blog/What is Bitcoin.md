@@ -4,8 +4,6 @@ pubDate: 2025-03-31
 description: "A detailed overview of Bitcoin and the ideas behind it, including insights from The Bitcoin Standard."
 ---
 
-# What is Bitcoin?
-
 Depending on who you ask, Bitcoin is:
 - Digital gold
 - A decentralized currency
@@ -17,7 +15,7 @@ The truth is, Bitcoin has been called all of these things — and often for good
 
 ---
 
-## Bitcoin: The Basics
+## The Basics
 
 Bitcoin is a **decentralized digital currency**. It doesn't rely on banks, governments, or corporations to function. Instead, it uses mathematics, cryptography, and a distributed network of computers to operate without needing a central authority.
 

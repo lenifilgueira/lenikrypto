@@ -1,8 +1,7 @@
 ---
-title: "About Me"
-description: "Why I started lenikrypto and what this project means to me."
-pubDate: 2025-04-01
-layout: ../../layouts/Page.astro
+title: "About lenikrypto"
+pubDate: 2025-03-30
+layout: ../layouts/Page.astro
 ---
 
 Nice to meet you — I'm lenik. I have a background in economics and have spent the past five years working in financial services and IT. Despite that, I’m still learning about Bitcoin and crypto every single day. The more I dig into it, the more I realize how deep and misunderstood this space really is.
