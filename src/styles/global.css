@@ -228,6 +228,11 @@ input[type="submit"],
 	font-family: 'Orbitron', sans-serif;
 }
 
+.prose ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+  }
   
   
   

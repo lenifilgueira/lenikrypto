@@ -6,8 +6,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import '../styles/global.css';
 
-const allPosts = await getCollection('blog');
-const latestPosts = allPosts
+const newsPosts = await getCollection('news');
+const latestNews = newsPosts
   .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
   .slice(0, 3);
 ---
@@ -28,23 +28,21 @@ const latestPosts = allPosts
       <section>
         <h2>Start Your Bitcoin Journey</h2>
         <p>Begin with the fundamentals:</p>
-        <p><a href="/blog/what-is-bitcoin">What is Bitcoin?</a></p>
+        <p><a href="/bitcoin-101">Go to Bitcoin 101 →</a></p>
       </section>
 
       <hr />
 
       <section>
-        <h2>Latest Posts</h2>
+        <h2>Latest News</h2>
         <ul>
-          {latestPosts.map(post => (
-            <li><a href={`/blog/${post.slug}`}>{post.data.title}</a></li>
+          {latestNews.map(post => (
+            <li><a href={`/news/${post.slug}`}>{post.data.title}</a></li>
           ))}
         </ul>
-        <p><a href="/blog">View all posts →</a></p>
+        <p><a href="/news">View all news →</a></p>
       </section>
-
     </main>
-
     <Footer />
   </body>
 </html>

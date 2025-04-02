@@ -1,17 +1,18 @@
 ---
-interface Props {
-	date: Date;
-}
-
 const { date } = Astro.props;
+
+// Safely parse and check the date
+let formatted = '';
+
+if (date) {
+  const parsed = new Date(date);
+  formatted = parsed.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    timeZone: 'UTC'
+  });
+}
 ---
 
-<time datetime={date.toISOString()}>
-	{
-		date.toLocaleDateString('en-us', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
-	}
-</time>
+{formatted && <p>{formatted}</p>}
