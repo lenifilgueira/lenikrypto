@@ -1,6 +1,12 @@
 ---
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
+import { getCollection } from 'astro:content';
+
+const bitcoin101 = await getCollection('bitcoin-101');
+const sorted = bitcoin101
+  .filter(post => typeof post.data.idnumber === 'number')
+  .sort((a, b) => a.data.idnumber - b.data.idnumber);
 ---
 
 <header>
@@ -14,7 +20,16 @@ import { SITE_TITLE } from '../consts';
 	  <div class="internal-links">
 		<HeaderLink href="/">Home</HeaderLink>
 		<HeaderLink href="/news">News</HeaderLink>
-		<HeaderLink href="/bitcoin-101">Bitcoin 101</HeaderLink>
+		<div class="nav-item dropdown">
+			<span class="nav-link">Bitcoin 101 ▾</span>
+			<div class="dropdown-content">
+			  {
+				sorted.map(post => (
+				  <a href={`/bitcoin-101/${post.id}`}>{post.data.title}</a>
+				))
+			  }
+			</div>
+		  </div>
 		<HeaderLink href="/about">About</HeaderLink>
 	  </div>
   
@@ -76,4 +91,42 @@ nav a:hover {
 			display: none;
 		}
 	}
+
+/* Align dropdown inline with other links */
+.nav-item {
+  position: relative;
+}
+
+/* Fix spacing in flex row */
+.internal-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Let dropdown behave like a normal nav item */
+.nav-link {
+  padding: 1em 0.5em;
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+  border-bottom: 4px solid transparent;
+}
+
+.nav-link:hover {
+  transform: scale(1.1);
+}
+
+/* Keep dropdown below nav */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+
+
 </style>

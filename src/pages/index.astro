@@ -6,10 +6,18 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import '../styles/global.css';
 
-const newsPosts = await getCollection('news');
-const latestNews = newsPosts
-  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
-  .slice(0, 3);
+const latestNews = (await getCollection('news'))
+  .filter(post => post.data.pubDate)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3); 
+
+
+const posts = (await getCollection('bitcoin-101'))
+  .filter(post => typeof post.data.idnumber === 'number') 
+  .sort((a, b) => a.data.idnumber - b.data.idnumber); 
+
+  
+
 ---
 
 <!doctype html>
@@ -37,7 +45,7 @@ const latestNews = newsPosts
         <h2>Latest News</h2>
         <ul>
           {latestNews.map(post => (
-            <li><a href={`/news/${post.slug}`}>{post.data.title}</a></li>
+            <li><a href={`/news/${post.id}`}>{post.data.title}</a></li>
           ))}
         </ul>
         <p><a href="/news">View all news →</a></p>

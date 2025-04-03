@@ -6,9 +6,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('bitcoin-101')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = (await getCollection('bitcoin-101'))
+  .filter(post => typeof post.data.idnumber === 'number') 
+  .sort((a, b) => a.data.idnumber - b.data.idnumber); 
+
+
 ---
 
 <!doctype html>
