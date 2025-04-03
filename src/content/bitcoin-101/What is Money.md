@@ -95,5 +95,3 @@ Bitcoin forces us to revisit all of this.
 Bitcoin doesn’t fit the traditional molds, but that’s kind of the point. It reopens the conversation about **what money is** — and whether the fiat system we inherited is actually the best we can do.
 
 As we continue exploring Bitcoin and other digital assets, this question will come up again and again. And the more you understand about the history and purpose of money, the more Bitcoin starts to make sense.
-
-
