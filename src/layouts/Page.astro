@@ -5,13 +5,18 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE } from '../consts';
 import '../styles/global.css';
 
-const { title } = Astro.props;
+const { title, description = "lenikrypto — Exploring Bitcoin & Crypto" } = Astro.props;
+
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={(title ? `${title} | ${SITE_TITLE}` : SITE_TITLE)} />
+    <BaseHead
+  title={(title ? `${title} | ${SITE_TITLE}` : SITE_TITLE)}
+  description={description}
+/>
+
   </head>
   <body class="bg-white text-gray-900 antialiased">
     <Header />

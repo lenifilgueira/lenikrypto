@@ -1,10 +1,9 @@
 ---
 title: "What is Bitcoin?"
 description: "A detailed overview of Bitcoin and the ideas behind it, including insights from The Bitcoin Standard."
-layout: ../../layouts/BlogPost.astro
+layout: ../../layouts/Page.astro
 idnumber: 2
 ---
-
 Depending on who you ask, Bitcoin is:
 - Digital gold
 - A decentralized currency

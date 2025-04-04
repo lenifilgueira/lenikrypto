@@ -1,12 +1,9 @@
 ---
 title: "What is Money?"
-description: "Before Bitcoin, there was gold, shells, paper… Here’s a breakdown of how money has evolved — and why it matters."
-layout: ../../layouts/BlogPost.astro
+description: "A breakdown of how money has evolved — and why it matters."
+layout: ../../layouts/Page.astro
 idnumber: 1
 ---
-
-# What is Money?
-
 Before we can understand Bitcoin — or why it matters — we need to go back to something much more basic: **what is money**?
 
 It’s one of those things we all use but rarely think about. Money feels obvious until you really look at it. And when you do, you start to realize it’s not a fixed concept — it’s a tool, an agreement, and a system that has changed a lot over time.

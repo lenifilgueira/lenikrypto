@@ -5,14 +5,13 @@ import Footer from '../components/Footer.astro';
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
-// ✅ Ensure proper UTC formatting
 const formatDate = (date: string | Date) => {
   const d = new Date(date);
   return d.toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
-    timeZone: 'UTC' // 👈 Fix the time shift
+    timeZone: 'UTC'
   });
 };
 ---
@@ -84,6 +83,29 @@ const formatDate = (date: string | Date) => {
             <hr />
           </div>
           <slot />
+          <slot />
+          <hr />
+
+          <div class="comments">
+            <!-- Giscus comment section-->
+            <script src="https://giscus.app/client.js"
+        data-repo="lenifilgueira/lenikrypto"
+        data-repo-id="R_kgDOORWTsg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOORWTss4Cox_R"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+            </script>
+          </div>
+
         </div>
       </article>
     </main>
